@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     environment {
-        REGISTRY = "Sirishaupadhyayula"   // <-- your Docker Hub username
+        REGISTRY = "sirisha2402"
         IMAGE = "flask-todo-app"
-        DOCKER_CREDENTIALS = 'dockerhub'  // Jenkins credentials ID
+        DOCKER_CREDENTIALS = 'dockerhub'
     }
 
     stages {
@@ -23,23 +23,6 @@ pipeline {
                         passwordVariable: 'DOCKER_PASS'
                     )
                 ]) {
-<<<<<<< HEAD
-                    sh """
-                    set -e
-
-                    echo "Logging into Docker Hub..."
-                    echo "\$DOCKER_PASS" | docker login -u "\$DOCKER_USER" --password-stdin
-
-                    echo "Building Docker image..."
-                    docker build -t ${REGISTRY}/${IMAGE}:${BUILD_NUMBER} .
-
-                    echo "Pushing Docker image..."
-                    docker push ${REGISTRY}/${IMAGE}:${BUILD_NUMBER}
-
-                    echo "Logging out from Docker Hub..."
-                    docker logout
-                    """
-=======
                     sh '''
                     set -e
 
@@ -55,7 +38,6 @@ pipeline {
                     echo "Logging out from Docker Hub..."
                     docker logout
                     '''
->>>>>>> df4e15a (Simple CI docker build and push)
                 }
             }
         }
