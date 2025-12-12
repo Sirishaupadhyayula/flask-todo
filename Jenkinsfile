@@ -5,6 +5,8 @@ pipeline {
         REGISTRY = "sirisha2402"
         IMAGE = "flask-todo-app"
         DOCKER_CREDENTIALS = 'dockerhub'
+        KUBECONFIG = "/var/jenkins_home/.kube/config"
+
     }
 
     stages {
