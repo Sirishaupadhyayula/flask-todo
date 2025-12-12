@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     environment {
-        REGISTRY = "sirisha2402"
+        REGISTRY = "Sirishaupadhyayula"   // <-- your Docker Hub username
         IMAGE = "flask-todo-app"
-        DOCKER_CREDENTIALS = 'dockerhub'
+        DOCKER_CREDENTIALS = 'dockerhub'  // Jenkins credentials ID
     }
 
     stages {
@@ -14,22 +14,30 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Build & Push Docker Image') {
             steps {
-                script {
-                    sh 'docker version'
-                    sh 'echo Building Docker image...'
-                    dockerImage = docker.build("${REGISTRY}/${IMAGE}:${env.BUILD_NUMBER}")
-                }
-            }
-        }
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: DOCKER_CREDENTIALS,
+                        usernameVariable: 'DOCKER_USER',
+                        passwordVariable: 'DOCKER_PASS'
+                    )
+                ]) {
+                    sh """
+                    set -e
 
-        stage('Push Docker Image') {
-            steps {
-                script {
-                    docker.withRegistry('', DOCKER_CREDENTIALS) {
-                        dockerImage.push()
-                    }
+                    echo "Logging into Docker Hub..."
+                    echo "\$DOCKER_PASS" | docker login -u "\$DOCKER_USER" --password-stdin
+
+                    echo "Building Docker image..."
+                    docker build -t ${REGISTRY}/${IMAGE}:${BUILD_NUMBER} .
+
+                    echo "Pushing Docker image..."
+                    docker push ${REGISTRY}/${IMAGE}:${BUILD_NUMBER}
+
+                    echo "Logging out from Docker Hub..."
+                    docker logout
+                    """
                 }
             }
         }
