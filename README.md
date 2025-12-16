@@ -44,7 +44,7 @@ Browser (flask-todo.local)
 ```
 ---
 
-## 🧰 Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |-----|-----------|
@@ -58,7 +58,7 @@ Browser (flask-todo.local)
 
 ---
 
-## 📦 Application Runtime
+## Application Runtime
 
 - Flask app served via **Gunicorn**
 - Container startup handled by a custom entrypoint script
@@ -70,7 +70,7 @@ Browser (flask-todo.local)
 
 ---
 
-## 🐳 Docker Highlights
+## Docker Highlights
 
 - Lightweight base image (`python:3.11-slim`)
 - No manual container commands required
@@ -79,7 +79,7 @@ Browser (flask-todo.local)
 
 ---
 
-## ☸️ Kubernetes (k3d)
+## Kubernetes (k3d)
 
 - Local Kubernetes cluster using **k3d**
 - Load balancer ports mapped to host
@@ -88,7 +88,7 @@ Browser (flask-todo.local)
 
 ---
 
-## 📦 Helm Chart Design
+## Helm Chart Design
 
 - Custom Helm chart (not default boilerplate)
 - Parameterized configuration:
@@ -101,7 +101,7 @@ Browser (flask-todo.local)
 
 ---
 
-## 🌐 Service Exposure
+## Service Exposure
 
 ### Option 1: NodePort
 - Exposes service on a fixed port
@@ -118,7 +118,7 @@ Browser (flask-todo.local)
 
 ---
 
-## 🔁 Jenkins CI/CD Pipeline
+## Jenkins CI/CD Pipeline
 
 The Jenkins pipeline automates:
 
@@ -135,9 +135,9 @@ The Jenkins pipeline automates:
 
 ---
 
-## 🧪 Real Issues Solved (Not Toy Problems)
+## 🧪 Real Issues Solved
 
-This project intentionally includes **real DevOps debugging scenarios**, including:
+This project intentionally includes **DevOps debugging scenarios**, including:
 
 - `docker: permission denied` inside Jenkins
 - `kubectl` context mismatch after cluster recreation
@@ -178,7 +178,7 @@ Each issue was debugged and fixed step-by-step.
 
 ---
 
-## 🎯 Why This Project Matters
+## Why This Project Matters
 
 This project is **not about Flask**.
 
@@ -192,7 +192,7 @@ It’s about:
 
 ---
 
-## 🚀 Future Enhancements
+## Future Enhancements
 
 - External database (Postgres)
 - Persistent volumes
@@ -205,5 +205,5 @@ It’s about:
 ## 👤 Author
 
 **Rupa Sai Mithra Sirisha Upadhyayula**  
-DevOps / Cloud / Platform Engineering
+DevOps Engineering
 
