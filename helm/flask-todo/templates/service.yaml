@@ -7,9 +7,12 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
-      protocol: TCP
-      name: http
+  - name: http
+    port: {{ .Values.service.port }}
+    targetPort: 5000
+    protocol: TCP
+    {{- if eq .Values.service.type "NodePort" }}
+    nodePort: {{ .Values.service.nodePort }}
+    {{- end }}
   selector:
     {{- include "flask-todo.selectorLabels" . | nindent 4 }}
