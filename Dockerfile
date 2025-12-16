@@ -4,10 +4,12 @@ WORKDIR /app
 # pip freeze > requirements.txt
 COPY requirements.txt .
 
-RUN pip install --no-cache-dir -r requirements.txt gunicorn
+RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir gunicorn
 
 # Copy the rest of the application code
 COPY . .
+RUN chmod +x /app/start.sh
 
 # Environment variables
 ENV FLASK_APP=app.py
@@ -17,4 +19,4 @@ ENV FLASK_ENV=production
 EXPOSE 5000
 
 # Start the app with Gunicorn
-CMD [ "gunicorn", "--bind", "0.0.0.0:5000", "app:app" ]
+CMD ["/app/start.sh"]
