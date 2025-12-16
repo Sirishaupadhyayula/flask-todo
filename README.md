@@ -135,7 +135,7 @@ The Jenkins pipeline automates:
 
 ---
 
-## 🧪 Real Issues Solved
+## Real Issues Solved
 
 This project intentionally includes **DevOps debugging scenarios**, including:
 
