@@ -20,6 +20,7 @@ This project focuses on **real-world DevOps workflows**, not just “getting an 
 
 ## Architecture Overview
 
+```
 Developer Commit
      |
      v
@@ -40,7 +41,7 @@ Kubernetes (k3d)
      v
 Browser (flask-todo.local)
 
-
+```
 ---
 
 ## 🧰 Tech Stack
@@ -151,18 +152,28 @@ Each issue was debugged and fixed step-by-step.
 
 ## 📁 Repository Structure
 
-.
-├── app.py
-├── start.sh
-├── Dockerfile
-├── requirements.txt
-├── helm/
-│   └── flask-todo/
-│       ├── templates/
-│       ├── values.yaml
-│       └── Chart.yaml
-├── Jenkinsfile
-└── README.md
+
+     ├── app.py
+
+     ├── start.sh
+
+     ├── Dockerfile
+
+     ├── requirements.txt
+
+     ├── helm/
+
+     │   └── flask-todo/
+
+     │       ├── templates/
+
+     │       ├── values.yaml
+
+     │       └── Chart.yaml
+
+     ├── Jenkinsfile
+
+     └── README.md
 
 
 ---
